@@ -17,6 +17,6 @@ Route::prefix("/v1")->middleware(['api', 'cors'])->group(function () {
     Route::post('auth/login', 'Api\AuthController@login');
     Route::post('auth/register', 'Api\AuthController@register');
     Route::middleware(['jwt'])->group(function () {
-        Route::post('auth/logout', 'Api\AuthController@logout');
+        Route::get('auth/logout', 'Api\AuthController@logout');
     });
 });
