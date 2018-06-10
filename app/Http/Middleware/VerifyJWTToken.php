@@ -4,9 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use JWTAuth;
-use Redirect;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Http\Middleware\BaseMiddleware;
@@ -26,6 +24,10 @@ class VerifyJWTToken extends BaseMiddleware
     public function handle($request, Closure $next)
     {
         try {
+            $token = $request->cookie('Authorization');
+            if ($token != null) {
+                $request->headers->set('Authorization', "Bearer $token");
+            }
             $this->checkForToken($request);
             $this->auth->parseToken()->authenticate();
         } catch (JWTException $e) {
@@ -38,38 +40,57 @@ class VerifyJWTToken extends BaseMiddleware
                     return $next($request); // Token expired. Response without any token because in grace period.
                 }
                 try {
-                    $newtoken = $this->auth->refresh(); // Get new token.
+                    $token = $this->auth->refresh(); // Get new token.
                     $gracePeriod = $this->auth->manager()->getBlacklist()->getGracePeriod();
                     $expiresAt = Carbon::now()->addSeconds($gracePeriod);
-                    Cache::put($key, $newtoken, $expiresAt);
+                    Cache::put($key, $token, $expiresAt);
                 } catch (JWTException $e) {
                     if ($request->ajax()) {
                         return response()->json(['success' => false, 'message' => 'Token has been blacklisted']);
                     } else {
-                        return Redirect::to('login');
+                        if ($request->is('login')) {
+                            return $next($request);
+                        } else {
+                            return redirect('login')->cookie('Authorization', '');
+                        }
                     }
                 }
             } else if ($e instanceof TokenInvalidException) {
                 if ($request->ajax()) {
                     return response()->json(['success' => false, 'message' => 'Token is invalid']);
                 } else {
-                    return Redirect::to('login');
+                    if ($request->is('login')) {
+                        return $next($request);
+                    } else {
+                        return redirect('login')->cookie('Authorization', '');
+                    }
                 }
             } else {
                 if ($request->ajax()) {
                     return response()->json(['success' => false, 'message' => 'Token is not provided']);
                 } else {
-                    return Redirect::to('login');
+                    if ($request->is('login')) {
+                        return $next($request);
+                    } else {
+                        return redirect('login')->cookie('Authorization', '');
+                    }
                 }
             }
         } catch (UnauthorizedHttpException $e) {
             if ($request->ajax()) {
                 return response()->json(['success' => false, 'message' => $e->getMessage()]);
             } else {
-                return Redirect::to('login');
+                if ($request->is('login')) {
+                    return $next($request);
+                } else {
+                    return redirect('login')->cookie('Authorization', '');
+                }
             }
         }
+        if (!$request->ajax() && $request->is('login')) {
+            return redirect('/');
+        }
         $response = $next($request);
-        return $response->header('Authorization', 'Bearer ' . $newtoken); // Response with new token on header Authorization.
+        return $response->cookie('Authorization', $token); // Response with new token on cookie Authorization.
     }
 }

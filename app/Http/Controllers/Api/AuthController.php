@@ -42,7 +42,7 @@ class AuthController extends Controller
             return response()->json(['success' => false, 'error' => 'Failed to login, please try again.'], 500);
         }
         // all good so return the token
-        return response()->json(['success' => true, 'data' => ['token' => $token]])->header('Authorization', 'Bearer ' . $token);
+        return response()->json(['success' => true])->cookie('Authorization', $token);
     }
 
     public function register(Request $request)
@@ -66,6 +66,6 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        return response()->json(['mode' => 1, 'success' => true, 'message' => "You have successfully logged out."]);
+        return response()->json(['success' => true, 'message' => "You have successfully logged out."])->cookie('Authorization', '');
     }
 }

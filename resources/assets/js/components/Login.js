@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
+import axios from 'axios';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -56,7 +57,9 @@ class LoginComponent extends React.Component {
             .then(res => {
                 this.setState({linear_progress_show: false});
                 if (res.data.success == true) {
-                    console.log(res);
+                    window.location.href = '/';
+                } else {
+                    alert(res.data.message);
                 }
             });
     }
@@ -179,4 +182,7 @@ class LoginComponent extends React.Component {
     }
 }
 
-ReactDOM.render(<LoginComponent/>, document.querySelector('#login-page'));
+var login_page = document.getElementById('login-page');
+if (login_page != null) {
+    ReactDOM.render(<LoginComponent/>, login_page);
+}
