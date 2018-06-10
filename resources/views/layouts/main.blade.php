@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 </head>
 <body>
+@yield('sidebar')
 @yield('content')
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </body>
