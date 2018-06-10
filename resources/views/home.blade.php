@@ -1,8 +1,7 @@
 @extends('layouts.main')
-@section('title','home')
+@section('title','Trang chủ')
 @section('sidebar')
     @include('layouts/sidebar')
 @endsection
 @section('content')
-    <label>home</label>
 @endsection
