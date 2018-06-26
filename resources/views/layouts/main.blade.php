@@ -8,12 +8,13 @@
 
     <title>@yield('title')</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+    <!-- Styles -->
+    @yield('style')
 </head>
 <body>
 @yield('sidebar')
 @yield('content')
-<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+<!-- Javascript -->
+@yield('javascript')
 </body>
 </html>

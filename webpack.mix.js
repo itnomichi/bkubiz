@@ -15,4 +15,5 @@ mix.options({
 });
 mix.react('resources/assets/js/app.js', 'public/js');
 mix.sass('resources/assets/sass/app.scss', 'public/css');
+mix.copyDirectory('resources/assets/css', 'public/css');
 mix.copyDirectory('resources/assets/images', 'public/images');
