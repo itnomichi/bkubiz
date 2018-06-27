@@ -85,7 +85,7 @@
                         </div>
                         <div class="gb_Va gb_Pg gb_R" role="button" tabindex="0" style="max-height:48px;width:134px" aria-expanded="false">
                             <div class="gb_Wa" style="line-height:32px;width:78px;">
-                                <img class="gb_1a gb_0a" src="http://ubiz.local/images/logo.gif" style="width:50px;max-height:32px;float: left;">
+                                <img class="gb_1a gb_0a" src="http://ubiz.local/images/logo.png" style="width:50px;max-height:32px;float: left;">
                             </div>
                             <div class="gb_jb gb_bd gb_Pg gb_R gb_Mb gb_Ff gb_rb">
                                 <div class="gb_Sc gb_mb gb_Pg gb_R">

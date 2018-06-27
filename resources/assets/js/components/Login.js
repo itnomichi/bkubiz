@@ -14,7 +14,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Fingerprint from '@material-ui/icons/Fingerprint';
 import orange from '@material-ui/core/colors/orange';
 
-import logo_img from '../../images/logo.gif';
+import logo_img from '../../images/logo.png';
 
 class LoginComponent extends React.Component {
     constructor(props) {
