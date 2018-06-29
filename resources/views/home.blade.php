@@ -52,7 +52,7 @@
                                             </div>
                                             <div class="xV">
                                                 <div class="oQ">
-                                                    <svg width="24px" height="24px" viewBox="0 0 24 24" >
+                                                    <svg width="24px" height="24px" viewBox="0 0 24 24">
                                                         <path fill="none" d="M0 0h24v24H0V0zm0 0h24v24H0z"></path>
                                                         <path d="M3 20.01c0 1.1.89 1.99 2 1.99h14c1.1 0 2-.9 2-1.99V18H3v2.01zM18 19c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm1-17H5c-1.1 0-2 .9-2 1.99V17h18V3.99C21 2.89 20.11 2 19 2zm-8.62 3h3.24l3.25 5.68h-3.24L10.38 5zm-3.52 6.16l3.11-5.44s1.62 2.85 1.62 2.84L8.49 14l-1.63-2.84zM15.51 14H9.3l1.62-2.84h6.21L15.51 14z"></path>
                                                     </svg>
@@ -185,11 +185,49 @@
                 </nav>
             </div>
         </div>
-        <div class="m-content">
-
-        </div>
+        <div class="m-content"></div>
         <div class="r-content">
-
+            <div class="bkK">
+                <div class="aeH">
+                    <div class="aqK">
+                        <div class="aqL">
+                            <div class="GtF">
+                                <div class="GNi">
+                                    <div class="ax7">
+                                        <div class="asA">
+                                            <div class="asF"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="GNi">
+                                    <div class="ax7">
+                                        <div class="asA">
+                                            <div class="asY"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="aqJ">
+                            <div class="ar5">
+                                <span class="Di">
+                                    <div class="amH" style="user-select: none">
+                                        <span class="Dj"><span><span class="ts">1</span>–<span class="ts">50</span></span> of <span class="ts">229</span></span>
+                                    </div>
+                                    <div class="amD">
+                                        <span class="amF">&nbsp;</span>
+                                        <img class="amI" src="http://ubiz.local/images/cleardot.gif" alt="">
+                                    </div>
+                                    <div class="amD">
+                                        <span class="amF">&nbsp;</span>
+                                        <img class="amJ" src="http://ubiz.local/images/cleardot.gif" alt="">
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
